@@ -1,3 +1,5 @@
+import permissionRouter from '@modules/users/routes/permissions.routes';
+import sessionRouter from '@modules/users/routes/sessions.routes';
 import userRouter from '@modules/users/routes/users.routes';
 import { Router } from 'express';
 
@@ -8,5 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.use('/users', userRouter);
+router.use('/session', sessionRouter);
+router.use('/permission', permissionRouter);
 
 export default router;
