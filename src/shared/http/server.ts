@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-import ApplicationError from '@shared/errors/AppError';
+import ApplicationError from '@shared/errors/ApplicationError';
 import 'dotenv/config';
 import '@shared/typeorm';
 import router from './routes';
