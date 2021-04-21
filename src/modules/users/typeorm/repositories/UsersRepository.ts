@@ -22,4 +22,14 @@ export class UsersRepository extends Repository<Users> {
 
     return user;
   }
+
+  public async findById(id: string): Promise<Users | undefined> {
+    const user = this.findOne({
+      where: {
+        id,
+      },
+    });
+
+    return user;
+  }
 }

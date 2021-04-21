@@ -1,5 +1,9 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { EntityRepository, In, Repository } from 'typeorm';
 import { Roles } from '../entities/Roles';
+
+interface IRole {
+  id: string;
+}
 
 @EntityRepository(Roles)
 export class RolesRepository extends Repository<Roles> {
@@ -21,5 +25,17 @@ export class RolesRepository extends Repository<Roles> {
     });
 
     return role;
+  }
+
+  public async findAllByIds(roles: IRole[]): Promise<Roles[]> {
+    const rolesIds = roles.map(role => role.id);
+
+    const existentRoles = this.find({
+      where: {
+        id: In(rolesIds),
+      },
+    });
+
+    return existentRoles;
   }
 }

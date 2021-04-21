@@ -3,7 +3,7 @@ import { Router } from 'express';
 import UsersController from '../controllers/UsersController';
 
 const userRouter = Router();
-const usersController = new UsersController();
+const controller = new UsersController();
 
 userRouter.post(
   '/create',
@@ -16,7 +16,18 @@ userRouter.post(
       password_confirm: Joi.string().required().valid(Joi.ref('password')),
     },
   }),
-  usersController.create,
+  controller.create,
+);
+
+userRouter.post(
+  '/add_roles',
+  celebrate({
+    [Segments.BODY]: {
+      user_id: Joi.string().required(),
+      roles: Joi.required(),
+    },
+  }),
+  controller.addRoles,
 );
 
 export default userRouter;

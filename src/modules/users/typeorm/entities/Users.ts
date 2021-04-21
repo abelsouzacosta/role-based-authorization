@@ -28,6 +28,14 @@ export class Users {
   @Exclude()
   password: string;
 
+  @ManyToMany(() => Roles)
+  @JoinTable({
+    name: 'users_roles',
+    joinColumns: [{ name: 'user_id' }],
+    inverseJoinColumns: [{ name: 'role_id' }],
+  })
+  roles: Roles[];
+
   @CreateDateColumn()
   created_at: Date;
 
