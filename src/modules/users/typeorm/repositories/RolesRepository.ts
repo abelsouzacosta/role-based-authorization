@@ -12,4 +12,14 @@ export class RolesRepository extends Repository<Roles> {
 
     return role;
   }
+
+  public async findById(id: string): Promise<Roles | undefined> {
+    const role = this.findOne({
+      where: {
+        id,
+      },
+    });
+
+    return role;
+  }
 }

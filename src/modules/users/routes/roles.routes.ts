@@ -16,4 +16,15 @@ roleRouter.post(
   controller.create,
 );
 
+roleRouter.post(
+  '/add_permission',
+  celebrate({
+    [Segments.BODY]: {
+      role_id: Joi.string().required(),
+      permissions: Joi.required(),
+    },
+  }),
+  controller.addPermissions,
+);
+
 export default roleRouter;
