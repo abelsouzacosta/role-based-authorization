@@ -31,7 +31,9 @@ async function decoder(req: Request): Promise<Users> {
   const payload = decode(token);
 
   // busca pelo usuário no banco de dados
-  const user = await repository.findOne(payload?.sub);
+  const user = await repository.findOne(payload?.sub, {
+    relations: ['roles'],
+  });
 
   if (!user) throw new ApplicationError('Unauthorized');
 

@@ -1,3 +1,4 @@
+import productRouter from '@modules/products/routes/products.routes';
 import permissionRouter from '@modules/users/routes/permissions.routes';
 import roleRouter from '@modules/users/routes/roles.routes';
 import sessionRouter from '@modules/users/routes/sessions.routes';
@@ -14,5 +15,6 @@ router.use('/users', userRouter);
 router.use('/session', sessionRouter);
 router.use('/permission', permissionRouter);
 router.use('/role', roleRouter);
+router.use('/product', productRouter);
 
 export default router;
