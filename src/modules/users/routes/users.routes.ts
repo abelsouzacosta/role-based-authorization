@@ -1,3 +1,4 @@
+import { is } from '@shared/http/middlewares/permissions';
 import { celebrate, Segments, Joi } from 'celebrate';
 import { Router } from 'express';
 import UsersController from '../controllers/UsersController';
@@ -5,8 +6,11 @@ import UsersController from '../controllers/UsersController';
 const userRouter = Router();
 const controller = new UsersController();
 
+userRouter.get('/', is(['_IS_ADMIN_']), controller.index);
+
 userRouter.post(
   '/create',
+  is(['_IS_USER_']),
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
@@ -20,10 +24,14 @@ userRouter.post(
 );
 
 userRouter.post(
-  '/add_roles',
+  '/:user_id/add_roles',
+  is(['_IS_ADMIN_']),
   celebrate({
-    [Segments.BODY]: {
+    [Segments.PARAMS]: Joi.object().keys({
       user_id: Joi.string().required(),
+    }),
+
+    [Segments.BODY]: {
       roles: Joi.required(),
     },
   }),

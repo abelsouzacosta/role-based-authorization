@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import CreateProductService from '../services/CreateProductService';
+import DeleteProductService from '../services/DeleteProductService';
 import ListProductService from '../services/ListProductService';
 import UpdateProductService from '../services/UpdateProductService';
 
@@ -30,5 +31,17 @@ export default class ProductController {
     const product = await update.execute({ id, name, description });
 
     return res.status(200).json(product);
+  }
+
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+
+    const remove = new DeleteProductService();
+
+    await remove.execute({ id });
+
+    return res.status(200).json({
+      ok: 'Product removed',
+    });
   }
 }

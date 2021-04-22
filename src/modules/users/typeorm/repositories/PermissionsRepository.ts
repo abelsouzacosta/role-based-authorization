@@ -17,6 +17,16 @@ export class PermissionsRepository extends Repository<Permissions> {
     return permission;
   }
 
+  public async findById(id: string): Promise<Permissions | undefined> {
+    const permission = await this.findOne({
+      where: {
+        id,
+      },
+    });
+
+    return permission;
+  }
+
   // método utilizado paraa verificar a existencia de permissions
   public async findAllByIds(permissions: ISearch[]): Promise<Permissions[]> {
     // captura todos os ids passados
