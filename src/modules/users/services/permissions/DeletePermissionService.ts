@@ -1,6 +1,6 @@
 import ApplicationError from '@shared/errors/ApplicationError';
 import { getCustomRepository } from 'typeorm';
-import { PermissionsRepository } from '../typeorm/repositories/PermissionsRepository';
+import { PermissionsRepository } from '../../typeorm/repositories/PermissionsRepository';
 
 interface IRequest {
   id: string;

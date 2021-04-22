@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { classToClass } from 'class-transformer';
-import CreateUserService from '../services/CreateUserService';
+import CreateUserService from '../services/users/CreateUserService';
 import AddRoleToUserService from '../services/users/AddRoleToUserService';
 import ListUserService from '../services/users/ListUserService';
 

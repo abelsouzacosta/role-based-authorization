@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import CreatePermissionService from '../services/CreatePermissionService';
-import DeletePermissionService from '../services/DeletePermissionService';
-import ListPermissionService from '../services/ListPermissionService';
-import UpdatePermissionService from '../services/UpdatePermissionService';
+import CreatePermissionService from '../services/permissions/CreatePermissionService';
+import DeletePermissionService from '../services/permissions/DeletePermissionService';
+import ListPermissionService from '../services/permissions/ListPermissionService';
+import UpdatePermissionService from '../services/permissions/UpdatePermissionService';
 
 export default class PermissionsController {
   public async index(req: Request, res: Response): Promise<Response> {
