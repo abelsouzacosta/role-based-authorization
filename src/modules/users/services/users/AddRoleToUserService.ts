@@ -1,9 +1,9 @@
 import ApplicationError from '@shared/errors/ApplicationError';
 import { getCustomRepository } from 'typeorm';
-import { UsersRepository } from '../typeorm/repositories/UsersRepository';
-import { RolesRepository } from '../typeorm/repositories/RolesRepository';
-import { Users } from '../typeorm/entities/Users';
-import { sameMembers } from '../utils/Arrays';
+import { UsersRepository } from '../../typeorm/repositories/UsersRepository';
+import { RolesRepository } from '../../typeorm/repositories/RolesRepository';
+import { Users } from '../../typeorm/entities/Users';
+import { sameMembers } from '../../utils/Arrays';
 
 interface IRole {
   id: string;
