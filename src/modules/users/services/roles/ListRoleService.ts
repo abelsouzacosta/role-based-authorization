@@ -1,7 +1,7 @@
 import ApplicationError from '@shared/errors/ApplicationError';
 import { getCustomRepository } from 'typeorm';
-import { Roles } from '../typeorm/entities/Roles';
-import { RolesRepository } from '../typeorm/repositories/RolesRepository';
+import { Roles } from '../../typeorm/entities/Roles';
+import { RolesRepository } from '../../typeorm/repositories/RolesRepository';
 
 export default class ListRoleService {
   public async execute(): Promise<Roles[]> {

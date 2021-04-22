@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import AddPermissionToRoleService from '../services/AddPermissionToRoleService';
-import CreateRoleService from '../services/CreateRoleService';
-import DeleteRoleService from '../services/DeleteRoleService';
-import ListRoleService from '../services/ListRoleService';
-import UpdateRoleService from '../services/UpdateRoleService';
+import AddPermissionToRoleService from '../services/roles/AddPermissionToRoleService';
+import CreateRoleService from '../services/roles/CreateRoleService';
+import DeleteRoleService from '../services/roles/DeleteRoleService';
+import ListRoleService from '../services/roles/ListRoleService';
+import UpdateRoleService from '../services/roles/UpdateRoleService';
 
 export default class RolesController {
   public async index(req: Request, res: Response): Promise<Response> {

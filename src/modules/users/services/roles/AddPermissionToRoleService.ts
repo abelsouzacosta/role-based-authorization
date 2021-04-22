@@ -1,9 +1,9 @@
 import ApplicationError from '@shared/errors/ApplicationError';
 import { getCustomRepository } from 'typeorm';
-import { Roles } from '../typeorm/entities/Roles';
-import { PermissionsRepository } from '../typeorm/repositories/PermissionsRepository';
-import { RolesRepository } from '../typeorm/repositories/RolesRepository';
-import { sameMembers } from '../utils/Arrays';
+import { Roles } from '../../typeorm/entities/Roles';
+import { PermissionsRepository } from '../../typeorm/repositories/PermissionsRepository';
+import { RolesRepository } from '../../typeorm/repositories/RolesRepository';
+import { sameMembers } from '../../utils/Arrays';
 
 // interface do array permissions
 interface IPermissions {
