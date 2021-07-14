@@ -7,8 +7,13 @@ import { errors } from 'celebrate';
 import 'dotenv/config';
 import '@shared/typeorm';
 import router from './routes';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocs from '../../swagger.json';
 
 const app = express();
+
+// define o middleware de documentação
+app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(cors());
 app.use(express.json());

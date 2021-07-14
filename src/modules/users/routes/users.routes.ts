@@ -10,7 +10,6 @@ userRouter.get('/', is(['_IS_ADMIN_']), controller.index);
 
 userRouter.post(
   '/create',
-  is(['_IS_USER_', '_IS_ADMIN_']),
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
